@@ -1,0 +1,20 @@
+{
+  "name": "autocoderv1node",
+  "version": "1.0.0",
+  "description": "First attempt for building auto coder. Wish me luck.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "https://github.com/Gogolian",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ignore": "^5.2.4",
+    "inquirer": "^9.1.5",
+    "klaw-sync": "^6.0.0",
+    "openai": "^3.2.1"
+  }
+}
