@@ -23,7 +23,10 @@ Make sure you have Node.js and npm installed on your system.
 
 1. Clone the repository
 2. Install dependencies `npm install`
-3. Run the application `npm start`
+3. Copy `example.env` to `.env`
+4. Update your OpenAI api key
+5. Youu may want to either switch mode or parametrize
+6. Run the application `npm start`
 
 ## Contributing
 
