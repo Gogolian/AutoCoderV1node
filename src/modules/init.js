@@ -13,25 +13,24 @@ export default async () => {
   console.log('USE IT AT YOUR OWN RISK!!!')
   console.log('THIS PROJECT IS FOR EDUCATIONAL PURPOSES ONLY!!!')
 
-  global.workingDir = process.env.WORK_ON_DIRECTORY
-
   if(process.env.MODE === 'params'){
     global.workingDir = await askForWorkingDir();
   } else {
     console.log('workingDir: ', global.workingDir)
   }
 
-  const workingDirTree = await parseDir(global.workingDir)
+  // const workingDirTree = await parseDir(global.workingDir)
 
   // TODO: Find some common method to use across multiple sustems, especially i dont know about .stdout if it will work.
-  const terminalOutput = await promisifiedExec('echo "CMD: %ComSpec% | PS: $PSVersionTable.PSVersion | macOS/Linux: $(uname -a || echo Unknown)" && echo "Python: $(python --version 2>&1 || echo Unknown)"')
+  // const terminalOutput = await promisifiedExec('echo "CMD: %ComSpec% | PS: $PSVersionTable.PSVersion | macOS/Linux: $(uname -a || echo Unknown)" && echo "Python: $(python --version 2>&1 || echo Unknown)"')
 
-  //console.log('terminalOutput', terminalOutput.stdout)
+  // const terminalOutput = await promisifiedExec(`dir`)
+
+  // console.log('terminalOutput', terminalOutput.stdout)
 
   try {
-    // Read agent1.txt file
+    // Read agent file
     const pureAgentPrompt = await fs.readFileSync(process.env.AGENT, 'utf-8');
-    // const pureAgentPrompt = await fs.readFileSync('agents/agent1.txt', 'utf-8');
 
     let task = process.env.FIRST_TASK
     if(process.env.MODE === 'params'){
@@ -42,9 +41,9 @@ export default async () => {
 
     const agentPrompt = parametrizeAgent(pureAgentPrompt, {
       workingDir: global.workingDir,
-      workingDirTree,
-      terminalOutput: terminalOutput.stdout,
-      task
+      task,
+      operatingSystem: process.env.OPERATING_SYSTEM || '',
+      terminal: process.env.TERMINAL || '',
     })
 
     console.log();

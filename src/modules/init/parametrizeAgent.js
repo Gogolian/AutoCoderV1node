@@ -1,9 +1,9 @@
 export default (pureAgentPrompt, parameters) => {
 
     return pureAgentPrompt
-        .replace('<WORKING DIR>', parameters.workingDir)
-        .replace('<tree structure here>', parameters.workingDirTree)
-        .replace('<TERMINAL OUTPUT>', parameters.terminalOutput)
-        .replace('<FIRST TASK>', parameters.task)
+        .replace('<WORKING_DIR>', parameters?.workingDir || '')
+        .replace('<FIRST_TASK>', parameters?.task || '')
+        .replace('<OPERATING_SYSTEM>', parameters?.operatingSystem || '')
+        .replace('<TERMINAL>', parameters?.terminal || '')
         
 }
