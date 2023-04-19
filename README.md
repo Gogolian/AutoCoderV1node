@@ -4,6 +4,10 @@ Welcome to **AutoCoderV1**! This is an early-stage project aimed at creating an 
 
 Although the project is in its early stages, we believe in its potential and would like to invite you to contribute to its development. We're excited to see where the community can take AutoCoderV1 and how it will evolve over time.
 
+# 19/04/2023 update
+
+There is now a second git branch `agent2` with a simplified agent that uses python to achieve tasks. Feel free to experiment with it!
+
 ## Features
 
 - Analyze file structures and files
