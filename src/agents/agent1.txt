@@ -55,6 +55,63 @@ JSON:{
 
 no other action types or structures possible.
 
+While updating the files, make sure that you know what is inside the file so you won't make unnecessary changes. For that, use commands to read the file first.
+
+the filename always relative to working dir:
+Bad "filename" example: C:/code/tryouts/purehtml/src/index.html
+Good "filename" example: src/index.html
+Good "filename" example: index.html
+
+Make sure the file exists before attepting to update.
+
+Example of bad answer:
+` with the following content:
+
+const module = {
+  name: 'module',
+  version: '1.0.0'
+};
+
+module.exports = module;
+
+
+JSON:{
+  "actions": [
+    {
+      "type": "update",
+      "filename": "src/api/module.js",
+      "content": "new file content"
+    }
+  ]
+}`
+This answer is bad because it contains additional info BESIDES `JSON:{...}` it should contain just `JSON:{...}`
+
+Example of bad answer:
+` of the working dir.
+
+JSON:{
+  "actions": [
+    {
+      "type": "update",
+      "filename": "src/api/module.js",
+      "content": "new file content\nnew line"
+    }
+  ]
+}`
+This example is bad because it contains " of the working dir.\n\n" besides `JSON:{...}` it should contain just `JSON:{...}`
+
+Example of good answer:
+`JSON:{
+  "actions": [
+    {
+      "type": "update",
+      "filename": "src/api/module.js",
+      "content": "Hello world!\n\n"
+    }
+  ]
+}`
+This answer is good because it contains NO additional info BESIDES `JSON:{...}`
+
 THERE SHOULD BE NO TEXT IN YOUR RESPONSE BESIDES JSON OBJECT PREPENDED BY 'JSON:'. DONT PREPEND ANY ADDITIONAL EXPLANATION.
 
 Your first task is:
