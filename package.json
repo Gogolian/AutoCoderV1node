@@ -2,7 +2,7 @@
   "name": "autocoderv1node",
   "version": "1.0.0",
   "description": "First attempt for building auto coder. Wish me luck.",
-  "main": "index.js",
+  "main": "src/index.js",
   "type": "module",
   "scripts": {
     "start": "node index.js",
